@@ -1,20 +1,21 @@
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddDbContext<TodoDb>(opt => opt.UseInMemoryDatabase("TodoList"));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddEndpointsApiExplorer();
-
-builder.Services.AddSwaggerServices();
+builder.Services.AddSwaggerServices(); // extensao para adicionar o swagger
 
 var app = builder.Build();
 
-app.UseSwaggerApplication();
+app.UseSwaggerApplication(); // extensao para adicionar o swagger configurado
 
+app.UseMiddleware<ApiResponseMiddleware>(); // extensao para adicionar o middleware que trata as respostas
 
-app.UseMiddleware<ApiResponseMiddleware>();
-
+#region endpoints
+    
 app.MapGet("/todoitems", async (TodoDb db) =>
     await db.Todos.ToListAsync());
 
@@ -60,10 +61,11 @@ app.MapDelete("/todoitems/{id}", async (int id, TodoDb db) =>
 
     return Results.NotFound();
 });
+#endregion
 
 app.Run();
 
-
+#region dados    
 public class Todo
 {
     public int Id { get; set; }
@@ -76,4 +78,7 @@ class TodoDb : DbContext
         : base(options) { }
 
     public DbSet<Todo> Todos => Set<Todo>();
-}
+};
+
+#endregion
+
