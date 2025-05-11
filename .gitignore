@@ -1,0 +1,66 @@
+# Compiled Object Code and Libraries (.dll, .pdb, .exe, etc.)
+[Dd]ebug/
+[Rr]elease/
+*.dll
+*.pdb
+*.exe
+*.suo
+*.userprefs
+*.user
+*.cache
+*.obj
+*.ilk
+*.resources
+*.razor.bin
+*.Build.props
+*.targets
+
+# Visual Studio temporary files, cache files
+_ReSharper*/
+[Tt]est[Rr]esults*
+[Bb]uild[Ll]og.*
+*.vspscc
+*.vssscc
+*.VC.db
+*.VC.VCW.sdf
+.vs/
+*.opensdf
+*.sdf
+*.sln.docstates
+*.sln.EntityFramework
+*.cachefile
+*.dbmdl
+*.jfm
+CPS/
+
+# NuGet related files
+packages/
+*.nupkg
+*.psmdcp
+[Ll]ibs/
+
+# User-specific files
+*.AssemblyInfo.cs
+appsettings.Development.json
+usersecrets.json
+
+# Tooling
+_PublishedWebsites/
+*.publishsettings
+*.azurePubxml
+*.vtproj
+*.webproj
+node_modules/
+yarn-error.log
+
+# Environment-specific files
+*.env
+*.config
+
+# Other ignored files
+*.log
+*.orig
+*.bak
+*.swp
+*.DS_Store
+Thumbs.db
